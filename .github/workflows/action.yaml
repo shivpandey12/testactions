@@ -38,4 +38,32 @@ jobs:
       with:
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+
+ cd: 
+
+    needs: integration
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout Deployment Repo
+        uses: actions/checkout@v3
+        with:
+          repository:  mdhack0316/testgitopsgithubactions
+          token: ${{ secrets.GH_PAT }}
+          ref: 'main'
+      - 
+        name: Updating Deployment Image
+        run: |
+          export IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+          echo $IMAGE_NAME
+          sed -i "s|mdhack/hcl.*$|$IMAGE_NAME|" deployment.yaml
+      -
+        name: Push To Repository
+        run: |
+          git config --global user.email "mayank123modi@gmail.com"
+          git config --global user.name "Runner"
+          git add .
+          git commit -m "${IMAGE_NAME} Tag"
+          git push
+    
     
