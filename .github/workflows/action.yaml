@@ -7,10 +7,10 @@ on:
 
 env: 
 
-REPO_NAME:  mayank
-ENV: dev
-APP_NAME: testapp
-IMAGE_NAME: testingnew
+  REPO_NAME:  mayank
+  ENV: dev
+  APP_NAME: testapp
+  IMAGE_NAME: testingnew
 
 
 jobs: 
