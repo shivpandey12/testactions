@@ -15,7 +15,7 @@ env:
 
 jobs: 
   integration: 
-    runs_on: ubuntu:latest
+    runs-on: ubuntu:latest
     steps: 
     - name: checkout main branch
       uses: actions/checkout@v3
