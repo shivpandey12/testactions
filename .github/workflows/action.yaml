@@ -9,7 +9,7 @@ env:
   REPO_NAME:  mayank
   ENV: dev
   APP_NAME: testapp
-  IMAGE_NAME: testingnew
+  IMAGE_NAME: hclb2
 
 
 jobs: 
