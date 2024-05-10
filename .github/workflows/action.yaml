@@ -39,7 +39,7 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
 
- cd: 
+  cd: 
 
     needs: integration
     runs-on: ubuntu-latest
